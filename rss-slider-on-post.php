@@ -5,7 +5,7 @@ Plugin Name: Rss slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Description: RSS slider on post is a small WordPress plugin to create the scroller/slider text gallery into the posts and pages, that makes rss integration to your web site very easy. In the admin we have option to add the rss feed link.
 Author: Gopi.R
-Version: 5.0
+Version: 5.1
 Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Tags: Rss, plugin, wordpress, slider
@@ -35,7 +35,6 @@ function rssslider_install()
 	add_option('rssslider_height_display_length_s4', "190_4_500");	
 	add_option('rss_s4', "http://www.gopiplus.com/extensions/category/joomla-plugin/feed/");
 }
-
 
 function rssslider_admin_options() 
 {
@@ -376,7 +375,7 @@ function rssslider_add_to_menu()
 
 function rssslider_deactivation() 
 {
-
+	// No action required.
 }
 
 add_shortcode( 'rss-slider-on-post', 'rssslider_shortcode' );
