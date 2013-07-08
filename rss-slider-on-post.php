@@ -5,7 +5,7 @@ Plugin Name: Rss slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Description: RSS slider on post is a small WordPress plugin to create the scroller/slider text gallery into the posts and pages, that makes rss integration to your web site very easy. In the admin we have option to add the rss feed link.
 Author: Gopi.R
-Version: 5.1
+Version: 6.0
 Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Tags: Rss, plugin, wordpress, slider
@@ -40,168 +40,166 @@ function rssslider_admin_options()
 {
 	global $wpdb;
 	?>
+		<div class="wrap">
+	  <div class="form-wrap">
+		<div id="icon-plugins" class="icon32 icon32-posts-post"></div>
+		<?php
+		$rssslider_height_display_length_s1 = get_option('rssslider_height_display_length_s1');
+		$rssslider_height_display_length_s2 = get_option('rssslider_height_display_length_s2');
+		$rssslider_height_display_length_s3 = get_option('rssslider_height_display_length_s3');
+		$rssslider_height_display_length_s4 = get_option('rssslider_height_display_length_s4');
+		$rss_s1 = get_option('rss_s1');
+		$rss_s2 = get_option('rss_s2');
+		$rss_s3 = get_option('rss_s3');
+		$rss_s4 = get_option('rss_s4');
+		
+		$rssslider_height_display_length_s1_new = explode("_", $rssslider_height_display_length_s1);
+		$rssslider_height_1 = @$rssslider_height_display_length_s1_new[0];
+		$rssslider_display_1 = @$rssslider_height_display_length_s1_new[1];
+		$rssslider_length_1 = @$rssslider_height_display_length_s1_new[2];
+		
+		$rssslider_height_display_length_s2 = explode("_", $rssslider_height_display_length_s2);
+		$rssslider_height_2 = @$rssslider_height_display_length_s2[0];
+		$rssslider_display_2 = @$rssslider_height_display_length_s2[1];
+		$rssslider_length_2 = @$rssslider_height_display_length_s2[2];
+		
+		$rssslider_height_display_length_s3 = explode("_", $rssslider_height_display_length_s3);
+		$rssslider_height_3 = @$rssslider_height_display_length_s3[0];
+		$rssslider_display_3 = @$rssslider_height_display_length_s3[1];
+		$rssslider_length_3 = @$rssslider_height_display_length_s3[2];
+		
+		$rssslider_height_display_length_s4 = explode("_", $rssslider_height_display_length_s4);
+		$rssslider_height_4 = @$rssslider_height_display_length_s4[0];
+		$rssslider_display_4 = @$rssslider_height_display_length_s4[1];
+		$rssslider_length_4 = @$rssslider_height_display_length_s4[2];
+		
+		if (isset($_POST['rssslider_form_submit']) && $_POST['rssslider_form_submit'] == 'yes')
+		{
+			check_admin_referer('rssslider_form_setting');
+				
+			$rssslider_height_1 = stripslashes($_POST['rssslider_height_1']);
+			$rssslider_display_1 = stripslashes($_POST['rssslider_display_1']);
+			$rssslider_length_1 = stripslashes($_POST['rssslider_length_1']);
+			
+			$rssslider_height_2 = stripslashes($_POST['rssslider_height_2']);
+			$rssslider_display_2 = stripslashes($_POST['rssslider_display_2']);
+			$rssslider_length_2 = stripslashes($_POST['rssslider_length_2']);
+			
+			$rssslider_height_3 = stripslashes($_POST['rssslider_height_3']);
+			$rssslider_display_3 = stripslashes($_POST['rssslider_display_3']);
+			$rssslider_length_3 = stripslashes($_POST['rssslider_length_3']);
+			
+			$rssslider_height_4 = stripslashes($_POST['rssslider_height_4']);
+			$rssslider_display_4 = stripslashes($_POST['rssslider_display_4']);
+			$rssslider_length_4 = stripslashes($_POST['rssslider_length_4']);
+			
+			$rssslider_height_display_length_s1 = $rssslider_height_1 . "_" . $rssslider_display_1. "_" . $rssslider_length_1;
+			$rssslider_height_display_length_s2 = $rssslider_height_2 . "_" . $rssslider_display_2. "_" . $rssslider_length_2;
+			$rssslider_height_display_length_s3 = $rssslider_height_3 . "_" . $rssslider_display_3. "_" . $rssslider_length_3;
+			$rssslider_height_display_length_s4 = $rssslider_height_4 . "_" . $rssslider_display_4. "_" . $rssslider_length_4;
+			
+			$rss_s1 = stripslashes($_POST['rss_s1']);
+			$rss_s2 = stripslashes($_POST['rss_s2']);
+			$rss_s3 = stripslashes($_POST['rss_s3']);
+			$rss_s4 = stripslashes($_POST['rss_s4']);
+			
+			update_option('rssslider_height_display_length_s1', $rssslider_height_display_length_s1 );
+			update_option('rssslider_height_display_length_s2', $rssslider_height_display_length_s2 );
+			update_option('rssslider_height_display_length_s3', $rssslider_height_display_length_s3 );
+			update_option('rssslider_height_display_length_s4', $rssslider_height_display_length_s4 );
+			update_option('rss_s1', $rss_s1 );
+			update_option('rss_s2', $rss_s2 );
+			update_option('rss_s3', $rss_s3 );
+			update_option('rss_s4', $rss_s4 );
+			
+			?>
+			<div class="updated fade">
+				<p><strong>Details successfully updated.</strong></p>
+			</div>
+			<?php
+		}
+		?>
+		<h2>Rss slider on post</h2>
+		<form name="rssslider_form" method="post" action="">
+		<h3>Setting 1</h3>
+		<label for="tag-title">Rss link</label>
+		<input name="rss_s1" type="text" id="rss_s1" value="<?php echo $rss_s1; ?>" size="125" maxlength="200" />
+		<p>Enter your rss link in this box.</p>
+		<label for="tag-title">Each record heigh</label>
+		<input name="rssslider_height_1" type="text" id="rssslider_height_1" value="<?php echo $rssslider_height_1; ?>" maxlength="3" />
+		<p>This is the height of the each record in the scroll.</p>
+		<label for="tag-title">Display records</label>
+		<input name="rssslider_display_1" type="text" id="rssslider_display_1" value="<?php echo $rssslider_display_1; ?>" maxlength="2" />
+		<p>No of records you want to show in the screen at the same time.</p>
+		<label for="tag-title">Text length</label>
+		<input name="rssslider_length_1" type="text" id="rssslider_length_1" value="<?php echo $rssslider_length_1; ?>" maxlength="3" />
+		<p>Enter description text length. </p>  
+		  
+		<h3>Setting 2</h3>
+		<label for="tag-title">Rss link</label>
+		<input name="rss_s2" type="text" id="rss_s2" value="<?php echo $rss_s2; ?>" size="125" maxlength="200" />
+		<p>Enter your rss link in this box.</p>
+		<label for="tag-title">Each record heigh</label>
+		<input name="rssslider_height_2" type="text" id="rssslider_height_2" value="<?php echo $rssslider_height_2; ?>" maxlength="3" />
+		<p>This is the height of the each record in the scroll.</p>
+		<label for="tag-title">Display records</label>
+		<input name="rssslider_display_2" type="text" id="rssslider_display_2" value="<?php echo $rssslider_display_2; ?>" maxlength="2" />
+		<p>No of records you want to show in the screen at the same time.</p>
+		<label for="tag-title">Text length</label>
+		<input name="rssslider_length_2" type="text" id="rssslider_length_2" value="<?php echo $rssslider_length_2; ?>" maxlength="3" />
+		<p>Enter description text length. </p> 
+		
+		<h3>Setting 3</h3>
+		<label for="tag-title">Rss link</label>
+		<input name="rss_s3" type="text" id="rss_s3" value="<?php echo $rss_s3; ?>" size="125" maxlength="200" />
+		<p>Enter your rss link in this box.</p>
+		<label for="tag-title">Each record heigh</label>
+		<input name="rssslider_height_3" type="text" id="rssslider_height_3" value="<?php echo $rssslider_height_3; ?>" maxlength="3" />
+		<p>This is the height of the each record in the scroll.</p>
+		<label for="tag-title">Display records</label>
+		<input name="rssslider_display_3" type="text" id="rssslider_display_3" value="<?php echo $rssslider_display_3; ?>" maxlength="2" />
+		<p>No of records you want to show in the screen at the same time.</p>
+		<label for="tag-title">Text length</label>
+		<input name="rssslider_length_3" type="text" id="rssslider_length_3" value="<?php echo $rssslider_length_3; ?>" maxlength="3" />
+		<p>Enter description text length. </p> 
+		
+		<h3>Setting 4</h3>
+		<label for="tag-title">Rss link</label>
+		<input name="rss_s4" type="text" id="rss_s4" value="<?php echo $rss_s4; ?>" size="125" maxlength="200" />
+		<p>Enter your rss link in this box.</p>
+		<label for="tag-title">Each record heigh</label>
+		<input name="rssslider_height_4" type="text" id="rssslider_height_4" value="<?php echo $rssslider_height_4; ?>" maxlength="3" />
+		<p>This is the height of the each record in the scroll.</p>
+		<label for="tag-title">Display records</label>
+		<input name="rssslider_display_4" type="text" id="rssslider_display_4" value="<?php echo $rssslider_display_4; ?>" maxlength="2" />
+		<p>No of records you want to show in the screen at the same time.</p>
+		<label for="tag-title">Text length</label>
+		<input name="rssslider_length_4" type="text" id="rssslider_length_4" value="<?php echo $rssslider_length_4; ?>" maxlength="3" />
+		<p>Enter description text length. </p> 
+		
+		<div style="height:10px;"></div>
+		<input type="hidden" name="rssslider_form_submit" value="yes"/>
+		<input name="rssslider_submit" id="rssslider_submit" class="button add-new-h2" value="Update All Details" type="submit" />
+		<input name="Help" lang="publish" class="button add-new-h2" onclick="window.open('http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/');" value="Help" type="button" />
+		<?php wp_nonce_field('rssslider_form_setting'); ?>
+	
+		</form>	
+	  </div>
+	  <h3>Plugin configuration option</h3>
+		<ol>
+			<li>Add plugin in the posts or pages using short code.</li>
+			<li>Add directly in to the theme using PHP code.</li>
+		</ol>
+	  <p class="description">Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/">click here</a></p>
+	</div>
+	<?php
+}
 
-<div class="wrap">
-  <h2>Rss slider on post</h2>
-</div>
-<?php
-	$rssslider_height_display_length_s1 = get_option('rssslider_height_display_length_s1');
-	$rssslider_height_display_length_s2 = get_option('rssslider_height_display_length_s2');
-	$rssslider_height_display_length_s3 = get_option('rssslider_height_display_length_s3');
-	$rssslider_height_display_length_s4 = get_option('rssslider_height_display_length_s4');
-	$rss_s1 = get_option('rss_s1');
-	$rss_s2 = get_option('rss_s2');
-	$rss_s3 = get_option('rss_s3');
-	$rss_s4 = get_option('rss_s4');
-	
-	$rssslider_height_display_length_s1_new = explode("_", $rssslider_height_display_length_s1);
-	$rssslider_height_1 = @$rssslider_height_display_length_s1_new[0];
-	$rssslider_display_1 = @$rssslider_height_display_length_s1_new[1];
-	$rssslider_length_1 = @$rssslider_height_display_length_s1_new[2];
-	
-	$rssslider_height_display_length_s2 = explode("_", $rssslider_height_display_length_s2);
-	$rssslider_height_2 = @$rssslider_height_display_length_s2[0];
-	$rssslider_display_2 = @$rssslider_height_display_length_s2[1];
-	$rssslider_length_2 = @$rssslider_height_display_length_s2[2];
-	
-	$rssslider_height_display_length_s3 = explode("_", $rssslider_height_display_length_s3);
-	$rssslider_height_3 = @$rssslider_height_display_length_s3[0];
-	$rssslider_display_3 = @$rssslider_height_display_length_s3[1];
-	$rssslider_length_3 = @$rssslider_height_display_length_s3[2];
-	
-	$rssslider_height_display_length_s4 = explode("_", $rssslider_height_display_length_s4);
-	$rssslider_height_4 = @$rssslider_height_display_length_s4[0];
-	$rssslider_display_4 = @$rssslider_height_display_length_s4[1];
-	$rssslider_length_4 = @$rssslider_height_display_length_s4[2];
-	
-	if (@$_POST['rssslider_submit']) 
-	{
-		$rssslider_height_1 = stripslashes($_POST['rssslider_height_1']);
-		$rssslider_display_1 = stripslashes($_POST['rssslider_display_1']);
-		$rssslider_length_1 = stripslashes($_POST['rssslider_length_1']);
-		
-		$rssslider_height_2 = stripslashes($_POST['rssslider_height_2']);
-		$rssslider_display_2 = stripslashes($_POST['rssslider_display_2']);
-		$rssslider_length_2 = stripslashes($_POST['rssslider_length_2']);
-		
-		$rssslider_height_3 = stripslashes($_POST['rssslider_height_3']);
-		$rssslider_display_3 = stripslashes($_POST['rssslider_display_3']);
-		$rssslider_length_3 = stripslashes($_POST['rssslider_length_3']);
-		
-		$rssslider_height_4 = stripslashes($_POST['rssslider_height_4']);
-		$rssslider_display_4 = stripslashes($_POST['rssslider_display_4']);
-		$rssslider_length_4 = stripslashes($_POST['rssslider_length_4']);
-		
-		$rssslider_height_display_length_s1 = $rssslider_height_1 . "_" . $rssslider_display_1. "_" . $rssslider_length_1;
-		$rssslider_height_display_length_s2 = $rssslider_height_2 . "_" . $rssslider_display_2. "_" . $rssslider_length_2;
-		$rssslider_height_display_length_s3 = $rssslider_height_3 . "_" . $rssslider_display_3. "_" . $rssslider_length_3;
-		$rssslider_height_display_length_s4 = $rssslider_height_4 . "_" . $rssslider_display_4. "_" . $rssslider_length_4;
-		
-		$rss_s1 = stripslashes($_POST['rss_s1']);
-		$rss_s2 = stripslashes($_POST['rss_s2']);
-		$rss_s3 = stripslashes($_POST['rss_s3']);
-		$rss_s4 = stripslashes($_POST['rss_s4']);
-		
-		update_option('rssslider_height_display_length_s1', $rssslider_height_display_length_s1 );
-		update_option('rssslider_height_display_length_s2', $rssslider_height_display_length_s2 );
-		update_option('rssslider_height_display_length_s3', $rssslider_height_display_length_s3 );
-		update_option('rssslider_height_display_length_s4', $rssslider_height_display_length_s4 );
-		update_option('rss_s1', $rss_s1 );
-		update_option('rss_s2', $rss_s2 );
-		update_option('rss_s3', $rss_s3 );
-		update_option('rss_s4', $rss_s4 );
-		
-	}
-	
-	?>
-<form name="rssslider_form" method="post" action="">
-  <table width="620" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td colspan="3"><h3>Setting 1</h3></td>
-    </tr>
-    <tr>
-      <td colspan="3">RSS Link</td>
-    </tr>
-    <tr>
-      <td height="30" colspan="3"><input  style="width: 600px;" type="text" value="<?php echo @$rss_s1; ?>" name="rss_s1" id="rss_s1" /></td>
-    </tr>
-    <tr>
-      <td height="30" width="160">Each Record Height</td>
-      <td width="160">Display Records #</td>
-      <td width="300">Text Length</td>
-    </tr>
-    <tr>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_height_1; ?>" name="rssslider_height_1" id="rssslider_height_1" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_display_1; ?>" name="rssslider_display_1" id="rssslider_display_1" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_length_1; ?>" name="rssslider_length_1" id="rssslider_length_1" /></td>
-    </tr>
-    <tr>
-      <td colspan="3"><h3>Setting 2</h3></td>
-    </tr>
-    <tr>
-      <td colspan="3">RSS Link</td>
-    </tr>
-    <tr>
-      <td height="30" colspan="3"><input  style="width: 600px;" type="text" value="<?php echo @$rss_s2; ?>" name="rss_s2" id="rss_s2" /></td>
-    </tr>
-    <tr>
-      <td height="30">Each Record Height</td>
-      <td>Display Records #</td>
-      <td>Text Length</td>
-    </tr>
-    <tr>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_height_2; ?>" name="rssslider_height_2" id="rssslider_height_2" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_display_2; ?>" name="rssslider_display_2" id="rssslider_display_2" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_length_2; ?>" name="rssslider_length_2" id="rssslider_length_2" /></td>
-    </tr>
-    <tr>
-      <td colspan="3"><h3>Setting 3</h3></td>
-    </tr>
-    <tr>
-      <td colspan="3">RSS Link</td>
-    </tr>
-    <tr>
-      <td height="30" colspan="3"><input  style="width: 600px;" type="text" value="<?php echo @$rss_s3; ?>" name="rss_s3" id="rss_s3" /></td>
-    </tr>
-    <tr>
-      <td height="30">Each Record Height</td>
-      <td>Display Records #</td>
-      <td>Text Length</td>
-    </tr>
-    <tr>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_height_3; ?>" name="rssslider_height_3" id="rssslider_height_3" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_display_3; ?>" name="rssslider_display_3" id="rssslider_display_3" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_length_3; ?>" name="rssslider_length_3" id="rssslider_length_3" /></td>
-    </tr>
-    <tr>
-      <td colspan="3"><h3>Setting 4</h3></td>
-    </tr>
-    <tr>
-      <td colspan="3">RSS Link</td>
-    </tr>
-    <tr>
-      <td height="30" colspan="3"><input  style="width: 600px;" type="text" value="<?php echo @$rss_s4; ?>" name="rss_s4" id="rss_s4" /></td>
-    </tr>
-    <tr>
-      <td height="30">Each Record Height</td>
-      <td>Display Records #</td>
-      <td>Text Length</td>
-    </tr>
-    <tr>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_height_4; ?>" name="rssslider_height_4" id="rssslider_height_4" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_display_4; ?>" name="rssslider_display_4" id="rssslider_display_4" /></td>
-      <td><input  style="width: 100px;" type="text" value="<?php echo @$rssslider_length_4; ?>" name="rssslider_length_4" id="rssslider_length_4" /></td>
-    </tr>
-    <tr>
-      <td colspan="3" height="40" align="left"><input name="rssslider_submit" id="rssslider_submit" lang="publish" class="button-primary" value="Update All Settings" type="Submit" /></td>
-    </tr>
-  </table>
-</form>
-<ul>
-<li>Use short code to add this plugin into posts and pages.</li>
-</ul>
-Check official website for more info and live demo <a href="http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/" target="_blank">click here</a>
-<?php
+function rssslider( $setting = "1" ) 
+{
+	$arr = array();
+	$arr["setting"] = $setting;
+	echo rssslider_shortcode($arr);
 }
 
 function rssslider_shortcode( $atts ) 
@@ -369,7 +367,7 @@ function rssslider_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page('Rss slider on post', 'Rss slider on post', 'manage_options', __FILE__, 'rssslider_admin_options' );
+		add_options_page('Rss slider on post', 'Rss slider on post', 'manage_options', 'rss-slider-on-post', 'rssslider_admin_options' );
 	}
 }
 

@@ -4,9 +4,9 @@ Donate link: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpres
 Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Tags:  Rss, plugin, wordpress, slider
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 5.1
+Requires at least: 3.2
+Tested up to: 3.6
+Stable tag: 6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -74,6 +74,13 @@ Tested up to: 3.4.2
 
 Tested up to: 3.5
 
+= 6.0 =
+
+Tested up to 3.6
+Added few security features.
+New admin layout.
+Option to add the scroll directly in to the theme using PHP code.
+
 == Changelog ==
 
 = 1.0 =
@@ -100,3 +107,10 @@ Tested up to: 3.4.2
 = 5.1 =
 
 Tested up to: 3.5
+
+= 6.0 =
+
+Tested up to 3.6
+Added few security features.
+New admin layout.
+Option to add the scroll directly in to the theme using PHP code.
