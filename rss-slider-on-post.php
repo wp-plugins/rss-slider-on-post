@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: Rss slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Description: RSS slider on post is a small WordPress plugin to create the scroller/slider text gallery into the posts and pages, that makes rss integration to your web site very easy. In the admin we have option to add the rss feed link.
 Author: Gopi.R
-Version: 6.0
+Version: 6.1
 Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Tags: Rss, plugin, wordpress, slider
@@ -114,83 +113,84 @@ function rssslider_admin_options()
 			
 			?>
 			<div class="updated fade">
-				<p><strong>Details successfully updated.</strong></p>
+				<p><strong><?php _e('Details successfully updated.', 'rss-slider-on-post'); ?></strong></p>
 			</div>
 			<?php
 		}
 		?>
-		<h2>Rss slider on post</h2>
+		<h2><?php _e('Rss slider on post', 'rss-slider-on-post'); ?></h2>
 		<form name="rssslider_form" method="post" action="">
-		<h3>Setting 1</h3>
-		<label for="tag-title">Rss link</label>
+		<h3><?php _e('Setting 1', 'rss-slider-on-post'); ?></h3>
+		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
 		<input name="rss_s1" type="text" id="rss_s1" value="<?php echo $rss_s1; ?>" size="125" maxlength="200" />
-		<p>Enter your rss link in this box.</p>
-		<label for="tag-title">Each record heigh</label>
+		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?> (Example: http://www.gopiplus.com/work/category/word-press-plug-in/feed/)</p>
+		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_1" type="text" id="rssslider_height_1" value="<?php echo $rssslider_height_1; ?>" maxlength="3" />
-		<p>This is the height of the each record in the scroll.</p>
-		<label for="tag-title">Display records</label>
+		<p><?php _e('This is the height of the each record in the scroll.', 'rss-slider-on-post'); ?> (Example: 200)</p>
+		<label for="tag-title"><?php _e('Display records', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_display_1" type="text" id="rssslider_display_1" value="<?php echo $rssslider_display_1; ?>" maxlength="2" />
-		<p>No of records you want to show in the screen at the same time.</p>
-		<label for="tag-title">Text length</label>
+		<p><?php _e('No of records you want to show in the screen at the same time.', 'rss-slider-on-post'); ?> (Example: 4)</p>
+		<label for="tag-title"><?php _e('Text length', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_length_1" type="text" id="rssslider_length_1" value="<?php echo $rssslider_length_1; ?>" maxlength="3" />
-		<p>Enter description text length. </p>  
+		<p><?php _e('Enter description text length.', 'rss-slider-on-post'); ?> (Example: 500)</p>  
 		  
-		<h3>Setting 2</h3>
-		<label for="tag-title">Rss link</label>
+		<h3><?php _e('Setting 2', 'rss-slider-on-post'); ?></h3>
+		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
 		<input name="rss_s2" type="text" id="rss_s2" value="<?php echo $rss_s2; ?>" size="125" maxlength="200" />
-		<p>Enter your rss link in this box.</p>
-		<label for="tag-title">Each record heigh</label>
+		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_2" type="text" id="rssslider_height_2" value="<?php echo $rssslider_height_2; ?>" maxlength="3" />
-		<p>This is the height of the each record in the scroll.</p>
-		<label for="tag-title">Display records</label>
+		<p><?php _e('This is the height of the each record in the scroll.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Display records', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_display_2" type="text" id="rssslider_display_2" value="<?php echo $rssslider_display_2; ?>" maxlength="2" />
-		<p>No of records you want to show in the screen at the same time.</p>
-		<label for="tag-title">Text length</label>
+		<p><?php _e('No of records you want to show in the screen at the same time.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Text length', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_length_2" type="text" id="rssslider_length_2" value="<?php echo $rssslider_length_2; ?>" maxlength="3" />
-		<p>Enter description text length. </p> 
+		<p><?php _e('Enter description text length.', 'rss-slider-on-post'); ?></p> 
 		
-		<h3>Setting 3</h3>
-		<label for="tag-title">Rss link</label>
+		<h3><?php _e('Setting 3', 'rss-slider-on-post'); ?></h3>
+		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
 		<input name="rss_s3" type="text" id="rss_s3" value="<?php echo $rss_s3; ?>" size="125" maxlength="200" />
-		<p>Enter your rss link in this box.</p>
-		<label for="tag-title">Each record heigh</label>
+		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_3" type="text" id="rssslider_height_3" value="<?php echo $rssslider_height_3; ?>" maxlength="3" />
-		<p>This is the height of the each record in the scroll.</p>
-		<label for="tag-title">Display records</label>
+		<p><?php _e('This is the height of the each record in the scroll.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Display records', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_display_3" type="text" id="rssslider_display_3" value="<?php echo $rssslider_display_3; ?>" maxlength="2" />
-		<p>No of records you want to show in the screen at the same time.</p>
-		<label for="tag-title">Text length</label>
+		<p><?php _e('No of records you want to show in the screen at the same time.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Text length', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_length_3" type="text" id="rssslider_length_3" value="<?php echo $rssslider_length_3; ?>" maxlength="3" />
-		<p>Enter description text length. </p> 
+		<p><?php _e('Enter description text length.', 'rss-slider-on-post'); ?></p> 
 		
-		<h3>Setting 4</h3>
-		<label for="tag-title">Rss link</label>
+		<h3><?php _e('Setting 4', 'rss-slider-on-post'); ?></h3>
+		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
 		<input name="rss_s4" type="text" id="rss_s4" value="<?php echo $rss_s4; ?>" size="125" maxlength="200" />
-		<p>Enter your rss link in this box.</p>
-		<label for="tag-title">Each record heigh</label>
+		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_4" type="text" id="rssslider_height_4" value="<?php echo $rssslider_height_4; ?>" maxlength="3" />
-		<p>This is the height of the each record in the scroll.</p>
-		<label for="tag-title">Display records</label>
+		<p><?php _e('This is the height of the each record in the scroll.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Display records', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_display_4" type="text" id="rssslider_display_4" value="<?php echo $rssslider_display_4; ?>" maxlength="2" />
-		<p>No of records you want to show in the screen at the same time.</p>
-		<label for="tag-title">Text length</label>
+		<p><?php _e('No of records you want to show in the screen at the same time.', 'rss-slider-on-post'); ?></p>
+		<label for="tag-title"><?php _e('Text length', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_length_4" type="text" id="rssslider_length_4" value="<?php echo $rssslider_length_4; ?>" maxlength="3" />
-		<p>Enter description text length. </p> 
+		<p><?php _e('Enter description text length.', 'rss-slider-on-post'); ?></p> 
 		
 		<div style="height:10px;"></div>
 		<input type="hidden" name="rssslider_form_submit" value="yes"/>
-		<input name="rssslider_submit" id="rssslider_submit" class="button add-new-h2" value="Update All Details" type="submit" />
-		<input name="Help" lang="publish" class="button add-new-h2" onclick="window.open('http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/');" value="Help" type="button" />
+		<input name="rssslider_submit" id="rssslider_submit" class="button add-new-h2" value="<?php _e('Update All Details', 'rss-slider-on-post'); ?>" type="submit" />
+		<input name="Help" lang="publish" class="button add-new-h2" onclick="window.open('http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/');" value="<?php _e('Help', 'rss-slider-on-post'); ?>" type="button" />
 		<?php wp_nonce_field('rssslider_form_setting'); ?>
 	
 		</form>	
 	  </div>
-	  <h3>Plugin configuration option</h3>
+	  <h3><?php _e('Plugin configuration option', 'rss-slider-on-post'); ?></h3>
 		<ol>
-			<li>Add plugin in the posts or pages using short code.</li>
-			<li>Add directly in to the theme using PHP code.</li>
+			<li><?php _e('Add plugin in the posts or pages using short code.', 'rss-slider-on-post'); ?></li>
+			<li><?php _e('Add directly in to the theme using PHP code.', 'rss-slider-on-post'); ?></li>
 		</ol>
-	  <p class="description">Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/">click here</a></p>
+	  <p class="description"><?php _e('Check official website for more information', 'rss-slider-on-post'); ?> 
+	  <a target="_blank" href="http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/"><?php _e('click here', 'rss-slider-on-post'); ?></a></p>
 	</div>
 	<?php
 }
@@ -249,117 +249,134 @@ function rssslider_shortcode( $atts )
 	if(!is_numeric(@$rssslider_scrollheight)){ @$rssslider_scrollheight = 150; }
 	
 	$xml = "";
+	$validurl = "";
+	$rssslider = "";
 	$cnt=0;
-	$f = fopen( $url, 'r' );
-	while( $data = fread( $f, 4096 ) ) { $xml .= $data; }
-	fclose( $f );
-	preg_match_all( "/\<item\>(.*?)\<\/item\>/s", $xml, $itemblocks );
-
-	if ( ! empty($itemblocks) ) 
-	{
-		$rssslider_count = 0;
-		$rssslider_html = "";
-		$IRjsjs = "";
-		$rssslider_x = "";
-		foreach( $itemblocks[1] as $block )
+	$content = @file_get_contents($url);
+	if (strpos($http_response_header[0], "200")) 
+	{ 
+		$f = fopen( $url, 'r' );
+		while( $data = fread( $f, 4096 ) ) 
 		{
-			$rssslider_target = "_blank";
-			
-			preg_match_all( "/\<title\>(.*?)\<\/title\>/",  $block, $title );
-			preg_match_all( "/\<link\>(.*?)\<\/link\>/", $block, $link );
-			preg_match_all( "/\<description\>(.*?)\<\/description\>/", $block, $description );
-			
-			$rssslider_title = $title[1][0];
-			$rssslider_title = mysql_real_escape_string(trim($rssslider_title));
-			$rssslider_link = $link[1][0];
-			$rssslider_link = trim($rssslider_link);
-			$rssslider_text = $description[1][0];
-			$rssslider_text = str_replace("&lt;![CDATA[","",$rssslider_text);
-			$rssslider_text = str_replace("<![CDATA[","",$rssslider_text);
-			$rssslider_text = str_replace("]]&gt;","",$rssslider_text);
-			$rssslider_text = str_replace("]]>","",$rssslider_text);
-			
-			if(is_numeric($rssslider_textlength))
-			{
-				if($rssslider_textlength <> "" && $rssslider_textlength > 0 )
-				{
-					$rssslider_text = substr($rssslider_text, 0, $rssslider_textlength);
-				}
-			}
-			
-			$rssslider_scrollheights = $rssslider_scrollheight."px";	
-			
-			$rssslider_html = $rssslider_html . "<div class='rssslider_div' style='height:".$rssslider_scrollheights.";padding:1px 0px 1px 0px;'>"; 
-			
-			if($rssslider_title <> "" )
-			{
-				$rssslider_html = $rssslider_html . "<div style='padding-left:4px;'><strong>";	
-				$IRjsjs = $IRjsjs . "<div style=\'padding-left:4px;\'><strong>";				
-				if($rssslider_link <> "" ) 
-				{ 
-					$rssslider_html = $rssslider_html . "<a href='$rssslider_link'>"; 
-					$IRjsjs = $IRjsjs . "<a href=\'$rssslider_link\'>";
-				} 
-				$rssslider_html = $rssslider_html . $rssslider_title;
-				$IRjsjs = $IRjsjs . $rssslider_title;
-				if($rssslider_link <> "" ) 
-				{ 
-					$rssslider_html = $rssslider_html . "</a>"; 
-					$IRjsjs = $IRjsjs . "</a>";
-				}
-				$rssslider_html = $rssslider_html . "</strong></div>";
-				$IRjsjs = $IRjsjs . "</strong></div>";
-			}
-			
-			if($rssslider_text <> "" )
-			{
-				$rssslider_html = $rssslider_html . "<div style='padding-left:4px;'>$rssslider_text</div>";	
-				$IRjsjs = $IRjsjs . "<div style=\'padding-left:4px;\'>$rssslider_text</div>";	
-			}
-			
-			$rssslider_html = $rssslider_html . "</div>";
-			
-			$rssslider_x = $rssslider_x . "rssslider[$rssslider_count] = '<div class=\'rssslider_div\' style=\'height:".$rssslider_scrollheights.";padding:1px 0px 1px 0px;\'>$IRjsjs</div>'; ";	
-			$rssslider_count++;
-			$IRjsjs = "";
+			$xml .= $data; 
 		}
-		
-		$rssslider_scrollheight = $rssslider_scrollheight + 4;
-		if($rssslider_count >= $rssslider_sametimedisplay)
+		fclose( $f );
+		preg_match_all( "/\<item\>(.*?)\<\/item\>/s", $xml, $itemblocks );
+	
+		if ( ! empty($itemblocks) ) 
 		{
-			$rssslider_count = $rssslider_sametimedisplay;
-			$rssslider_scrollheight_New = ($rssslider_scrollheight * $rssslider_sametimedisplay);
+			$rssslider_count = 0;
+			$rssslider_html = "";
+			$IRjsjs = "";
+			$rssslider_x = "";
+			foreach( $itemblocks[1] as $block )
+			{
+				$rssslider_target = "_blank";
+				
+				preg_match_all( "/\<title\>(.*?)\<\/title\>/",  $block, $title );
+				preg_match_all( "/\<link\>(.*?)\<\/link\>/", $block, $link );
+				preg_match_all( "/\<description\>(.*?)\<\/description\>/", $block, $description );
+				
+				$rssslider_title = $title[1][0];
+				$rssslider_title = mysql_real_escape_string(trim($rssslider_title));
+				$rssslider_link = $link[1][0];
+				$rssslider_link = trim($rssslider_link);
+				$rssslider_text = $description[1][0];
+				$rssslider_text = str_replace("&lt;![CDATA[","",$rssslider_text);
+				$rssslider_text = str_replace("<![CDATA[","",$rssslider_text);
+				$rssslider_text = str_replace("]]&gt;","",$rssslider_text);
+				$rssslider_text = str_replace("]]>","",$rssslider_text);
+				
+				if(is_numeric($rssslider_textlength))
+				{
+					if($rssslider_textlength <> "" && $rssslider_textlength > 0 )
+					{
+						$rssslider_text = substr($rssslider_text, 0, $rssslider_textlength);
+					}
+				}
+				
+				$rssslider_scrollheights = $rssslider_scrollheight."px";	
+				
+				$rssslider_html = $rssslider_html . "<div class='rssslider_div' style='height:".$rssslider_scrollheights.";padding:1px 0px 1px 0px;'>"; 
+				
+				if($rssslider_title <> "" )
+				{
+					$rssslider_html = $rssslider_html . "<div style='padding-left:4px;'><strong>";	
+					$IRjsjs = $IRjsjs . "<div style=\'padding-left:4px;\'><strong>";				
+					if($rssslider_link <> "" ) 
+					{ 
+						$rssslider_html = $rssslider_html . "<a href='$rssslider_link'>"; 
+						$IRjsjs = $IRjsjs . "<a href=\'$rssslider_link\'>";
+					} 
+					$rssslider_html = $rssslider_html . $rssslider_title;
+					$IRjsjs = $IRjsjs . $rssslider_title;
+					if($rssslider_link <> "" ) 
+					{ 
+						$rssslider_html = $rssslider_html . "</a>"; 
+						$IRjsjs = $IRjsjs . "</a>";
+					}
+					$rssslider_html = $rssslider_html . "</strong></div>";
+					$IRjsjs = $IRjsjs . "</strong></div>";
+				}
+				
+				if($rssslider_text <> "" )
+				{
+					$rssslider_html = $rssslider_html . "<div style='padding-left:4px;'>$rssslider_text</div>";	
+					$IRjsjs = $IRjsjs . "<div style=\'padding-left:4px;\'>$rssslider_text</div>";	
+				}
+				
+				$rssslider_html = $rssslider_html . "</div>";
+				
+				$rssslider_x = $rssslider_x . "rssslider[$rssslider_count] = '<div class=\'rssslider_div\' style=\'height:".$rssslider_scrollheights.";padding:1px 0px 1px 0px;\'>$IRjsjs</div>'; ";	
+				$rssslider_count++;
+				$IRjsjs = "";
+			}
+			
+			$rssslider_scrollheight = $rssslider_scrollheight + 4;
+			if($rssslider_count >= $rssslider_sametimedisplay)
+			{
+				$rssslider_count = $rssslider_sametimedisplay;
+				$rssslider_scrollheight_New = ($rssslider_scrollheight * $rssslider_sametimedisplay);
+			}
+			else
+			{
+				$rssslider_count = $rssslider_count;
+				$rssslider_scrollheight_New = ($rssslider_count  * $rssslider_scrollheight);
+			}
+	
+			$rssslider = $rssslider . '<div style="padding-top:8px;padding-bottom:8px;">';
+			$rssslider = $rssslider . '<div style="text-align:left;vertical-align:middle;text-decoration: none;overflow: hidden; position: relative; margin-left: 3px; height: '. @$rssslider_scrollheight .'px;" id="RSSSlider">'.@$rssslider_html.'</div>';
+			$rssslider = $rssslider . '</div>';
+			$rssslider = $rssslider . '<script type="text/javascript">';
+			$rssslider = $rssslider . 'var rssslider = new Array();';
+			$rssslider = $rssslider . "var objrssslider	= '';";
+			$rssslider = $rssslider . "var rssslider_scrollPos 	= '';";
+			$rssslider = $rssslider . "var rssslider_numScrolls	= '';";
+			$rssslider = $rssslider . 'var rssslider_heightOfElm = '. @$rssslider_scrollheight. ';';
+			$rssslider = $rssslider . 'var rssslider_numberOfElm = '. @$rssslider_count. ';';
+			$rssslider = $rssslider . "var rssslider_scrollOn 	= 'true';";
+			$rssslider = $rssslider . 'function rsssliderScroll() ';
+			$rssslider = $rssslider . '{';
+			$rssslider = $rssslider . @$rssslider_x;
+			$rssslider = $rssslider . "objrssslider	= document.getElementById('RSSSlider');";
+			$rssslider = $rssslider . "objrssslider.style.height = (rssslider_numberOfElm * rssslider_heightOfElm) + 'px';";
+			$rssslider = $rssslider . 'rsssliderContent();';
+			$rssslider = $rssslider . '}';
+			$rssslider = $rssslider . '</script>';
+			$rssslider = $rssslider . '<script type="text/javascript">';
+			$rssslider = $rssslider . 'rsssliderScroll();';
+			$rssslider = $rssslider . '</script>';
 		}
 		else
 		{
-			$rssslider_count = $rssslider_count;
-			$rssslider_scrollheight_New = ($rssslider_count  * $rssslider_scrollheight);
+			$rssslider = "No records found.";
 		}
+	} 
+	else 
+	{ 
+		$rssslider = "RSS url is invalid or broken";
 	}
-	
-	$rssslider = "";
-	$rssslider = $rssslider . '<div style="padding-top:8px;padding-bottom:8px;">';
-	$rssslider = $rssslider . '<div style="text-align:left;vertical-align:middle;text-decoration: none;overflow: hidden; position: relative; margin-left: 3px; height: '. @$rssslider_scrollheight .'px;" id="RSSSlider">'.@$rssslider_html.'</div>';
-	$rssslider = $rssslider . '</div>';
-	$rssslider = $rssslider . '<script type="text/javascript">';
-	$rssslider = $rssslider . 'var rssslider = new Array();';
-	$rssslider = $rssslider . "var objrssslider	= '';";
-	$rssslider = $rssslider . "var rssslider_scrollPos 	= '';";
-	$rssslider = $rssslider . "var rssslider_numScrolls	= '';";
-	$rssslider = $rssslider . 'var rssslider_heightOfElm = '. @$rssslider_scrollheight. ';';
-	$rssslider = $rssslider . 'var rssslider_numberOfElm = '. @$rssslider_count. ';';
-	$rssslider = $rssslider . "var rssslider_scrollOn 	= 'true';";
-	$rssslider = $rssslider . 'function rsssliderScroll() ';
-	$rssslider = $rssslider . '{';
-	$rssslider = $rssslider . @$rssslider_x;
-	$rssslider = $rssslider . "objrssslider	= document.getElementById('RSSSlider');";
-	$rssslider = $rssslider . "objrssslider.style.height = (rssslider_numberOfElm * rssslider_heightOfElm) + 'px';";
-	$rssslider = $rssslider . 'rsssliderContent();';
-	$rssslider = $rssslider . '}';
-	$rssslider = $rssslider . '</script>';
-	$rssslider = $rssslider . '<script type="text/javascript">';
-	$rssslider = $rssslider . 'rsssliderScroll();';
-	$rssslider = $rssslider . '</script>';
+
 	return $rssslider;
 }
 
@@ -367,7 +384,8 @@ function rssslider_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page('Rss slider on post', 'Rss slider on post', 'manage_options', 'rss-slider-on-post', 'rssslider_admin_options' );
+		add_options_page( __('Rss slider on post', 'rss-slider-on-post'), __('Rss slider on post', 'rss-slider-on-post'), 
+								'manage_options', 'rss-slider-on-post', 'rssslider_admin_options' );
 	}
 }
 
@@ -376,6 +394,12 @@ function rssslider_deactivation()
 	// No action required.
 }
 
+function rssslider_textdomain() 
+{
+	  load_plugin_textdomain( 'rss-slider-on-post', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'rssslider_textdomain');
 add_shortcode( 'rss-slider-on-post', 'rssslider_shortcode' );
 register_activation_hook(__FILE__, 'rssslider_install');
 register_deactivation_hook(__FILE__, 'rssslider_deactivation');
