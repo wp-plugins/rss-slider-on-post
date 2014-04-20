@@ -3,10 +3,10 @@ Contributors: www.gopiplus.com, gopiplus
 Donate link: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
-Tags:  Rss, plugin, wordpress, slider
+Tags:  rss, feed, slider
 Requires at least: 3.2
-Tested up to: 3.8
-Stable tag: 6.1
+Tested up to: 3.9
+Stable tag: 6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -89,6 +89,11 @@ Option to add the scroll directly in to the theme using PHP code.
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (rss-slider-on-post.po) available in the languages folder.
 
+= 6.2 =
+
+1. Tested up to 3.9
+2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
+
 == Changelog ==
 
 = 1.0 =
@@ -128,3 +133,8 @@ Option to add the scroll directly in to the theme using PHP code.
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (rss-slider-on-post.po) available in the languages folder.
+
+= 6.2 =
+
+1. Tested up to 3.9
+2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
