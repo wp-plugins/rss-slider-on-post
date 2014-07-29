@@ -4,7 +4,7 @@ Plugin Name: Rss slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Description: RSS slider on post is a small WordPress plugin to create the scroller/slider text gallery into the posts and pages, that makes rss integration to your web site very easy. In the admin we have option to add the rss feed link.
 Author: Gopi Ramasamy
-Version: 6.2
+Version: 6.3
 Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Tags: rss, feed, slider
@@ -122,7 +122,7 @@ function rssslider_admin_options()
 		<form name="rssslider_form" method="post" action="">
 		<h3><?php _e('Setting 1', 'rss-slider-on-post'); ?></h3>
 		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
-		<input name="rss_s1" type="text" id="rss_s1" value="<?php echo $rss_s1; ?>" size="125" maxlength="200" />
+		<input name="rss_s1" type="text" id="rss_s1" value="<?php echo $rss_s1; ?>" size="90" maxlength="500" />
 		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?> (Example: http://www.gopiplus.com/work/category/word-press-plug-in/feed/)</p>
 		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_1" type="text" id="rssslider_height_1" value="<?php echo $rssslider_height_1; ?>" maxlength="3" />
@@ -136,7 +136,7 @@ function rssslider_admin_options()
 		  
 		<h3><?php _e('Setting 2', 'rss-slider-on-post'); ?></h3>
 		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
-		<input name="rss_s2" type="text" id="rss_s2" value="<?php echo $rss_s2; ?>" size="125" maxlength="200" />
+		<input name="rss_s2" type="text" id="rss_s2" value="<?php echo $rss_s2; ?>" size="90" maxlength="500" />
 		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?></p>
 		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_2" type="text" id="rssslider_height_2" value="<?php echo $rssslider_height_2; ?>" maxlength="3" />
@@ -150,7 +150,7 @@ function rssslider_admin_options()
 		
 		<h3><?php _e('Setting 3', 'rss-slider-on-post'); ?></h3>
 		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
-		<input name="rss_s3" type="text" id="rss_s3" value="<?php echo $rss_s3; ?>" size="125" maxlength="200" />
+		<input name="rss_s3" type="text" id="rss_s3" value="<?php echo $rss_s3; ?>" size="90" maxlength="500" />
 		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?></p>
 		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_3" type="text" id="rssslider_height_3" value="<?php echo $rssslider_height_3; ?>" maxlength="3" />
@@ -164,7 +164,7 @@ function rssslider_admin_options()
 		
 		<h3><?php _e('Setting 4', 'rss-slider-on-post'); ?></h3>
 		<label for="tag-title"><?php _e('Rss link', 'rss-slider-on-post'); ?></label>
-		<input name="rss_s4" type="text" id="rss_s4" value="<?php echo $rss_s4; ?>" size="125" maxlength="200" />
+		<input name="rss_s4" type="text" id="rss_s4" value="<?php echo $rss_s4; ?>" size="90" maxlength="500" />
 		<p><?php _e('Enter your rss link in this box.', 'rss-slider-on-post'); ?></p>
 		<label for="tag-title"><?php _e('Each record heigh', 'rss-slider-on-post'); ?></label>
 		<input name="rssslider_height_4" type="text" id="rssslider_height_4" value="<?php echo $rssslider_height_4; ?>" maxlength="3" />
@@ -240,21 +240,21 @@ function rssslider_shortcode( $atts )
 	
 	
 	$rssslider_height_display_length = explode("_", $rssslider_newsetting);
-	$rssslider_scrollheight = @$rssslider_height_display_length[0];
-	$rssslider_sametimedisplay = @$rssslider_height_display_length[1];
-	$rssslider_textlength = @$rssslider_height_display_length[2];
+	$rssslider_scrollheight = $rssslider_height_display_length[0];
+	$rssslider_sametimedisplay = $rssslider_height_display_length[1];
+	$rssslider_textlength = $rssslider_height_display_length[2];
 	
-	if(!is_numeric(@$rssslider_textlength)){ @$rssslider_textlength = 250; }
-	if(!is_numeric(@$rssslider_sametimedisplay)){ @$rssslider_sametimedisplay = 2; }
-	if(!is_numeric(@$rssslider_scrollheight)){ @$rssslider_scrollheight = 150; }
+	if(!is_numeric($rssslider_textlength)){ $rssslider_textlength = 250; }
+	if(!is_numeric($rssslider_sametimedisplay)){ $rssslider_sametimedisplay = 2; }
+	if(!is_numeric($rssslider_scrollheight)){ $rssslider_scrollheight = 150; }
 	
 	$xml = "";
 	$validurl = "";
 	$rssslider = "";
 	$cnt=0;
-	$content = @file_get_contents($url);
-	if (strpos($http_response_header[0], "200")) 
-	{ 
+	//$content = @file_get_contents($url);
+	//if (strpos($http_response_header[0], "200")) 
+	//{ 
 		$cnt = 0;
 		$maxitems = 0;
 		$rssslider_count = 0;
@@ -348,12 +348,12 @@ function rssslider_shortcode( $atts )
 				$rssslider = $rssslider . "var objrssslider	= '';";
 				$rssslider = $rssslider . "var rssslider_scrollPos 	= '';";
 				$rssslider = $rssslider . "var rssslider_numScrolls	= '';";
-				$rssslider = $rssslider . 'var rssslider_heightOfElm = '. @$rssslider_scrollheight. ';';
-				$rssslider = $rssslider . 'var rssslider_numberOfElm = '. @$rssslider_count. ';';
+				$rssslider = $rssslider . 'var rssslider_heightOfElm = '. $rssslider_scrollheight. ';';
+				$rssslider = $rssslider . 'var rssslider_numberOfElm = '. $rssslider_count. ';';
 				$rssslider = $rssslider . "var rssslider_scrollOn 	= 'true';";
 				$rssslider = $rssslider . 'function rsssliderScroll() ';
 				$rssslider = $rssslider . '{';
-				$rssslider = $rssslider . @$rssslider_x;
+				$rssslider = $rssslider . $rssslider_x;
 				$rssslider = $rssslider . "objrssslider	= document.getElementById('RSSSlider');";
 				$rssslider = $rssslider . "objrssslider.style.height = (rssslider_numberOfElm * rssslider_heightOfElm) + 'px';";
 				$rssslider = $rssslider . 'rsssliderContent();';
@@ -372,11 +372,11 @@ function rssslider_shortcode( $atts )
 		{ 
 			$rssslider = "RSS url is invalid or broken";
 		}
-	}
-	else 
-	{ 
-		$rssslider = "RSS url is invalid or broken";
-	}
+	//}
+	//else 
+	//{ 
+	//	$rssslider = "RSS url is invalid or broken";
+	//}
 	return $rssslider;
 }
 

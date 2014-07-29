@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress
 Plugin URI: http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
 Tags:  rss, feed, slider
 Requires at least: 3.2
-Tested up to: 3.9
-Stable tag: 6.2
+Tested up to: 3.9.1
+Stable tag: 6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -29,11 +29,10 @@ RSS slider on post is a small WordPress plugin to create the scroller/slider tex
 * Option to add any rss feed.
 * Easy scroller setting.
 
-**Plug-in configure**
+**Plugin configuration option**
 
-First install and activate the plugin, after use the below short code in the posts and pages.
-
-http://www.gopiplus.com/work/2012/04/01/rss-slider-on-post-wordpress-plugin/
+* Add plugin in the posts or pages using short code.
+* Add directly in to the theme using PHP code.
 
 == Installation ==	
 
@@ -94,6 +93,10 @@ Plugin *.po file (rss-slider-on-post.po) available in the languages folder.
 1. Tested up to 3.9
 2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
 
+= 6.3 =
+
+1. Little modification on fetch_feed() method call.
+
 == Changelog ==
 
 = 1.0 =
@@ -138,3 +141,7 @@ Plugin *.po file (rss-slider-on-post.po) available in the languages folder.
 
 1. Tested up to 3.9
 2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
+
+= 6.3 =
+
+1. Little modification on fetch_feed() method call.
